@@ -1,80 +1,24 @@
 # go-elasticsearch
 
-The official Go client for [Elasticsearch](https://www.elastic.co/products/elasticsearch).
+This is a fork of [github.com/elastic/go-elasticsearch](https://github.com/elastic/go-elasticsearch/tree/6.x) to make package can be used without go module.
 
 [![GoDoc](https://godoc.org/github.com/subiz/go-elasticsearch?status.svg)](http://godoc.org/github.com/subiz/go-elasticsearch)
-[![Travis-CI](https://travis-ci.org/elastic/go-elasticsearch.svg?branch=master)](https://travis-ci.org/elastic/go-elasticsearch)
-[![Go Report Card](https://goreportcard.com/badge/github.com/subiz/go-elasticsearch)](https://goreportcard.com/report/github.com/subiz/go-elasticsearch)
-[![codecov.io](https://codecov.io/github/elastic/go-elasticsearch/coverage.svg?branch=master)](https://codecov.io/gh/elastic/go-elasticsearch?branch=master)
 
 ## Compatibility
 
-The client major versions correspond to the compatible Elasticsearch major versions: to connect to Elasticsearch `7.x`, use a [`7.x`](https://github.com/subiz/go-elasticsearch/tree/7.x) version of the client, to connect to Elasticsearch `6.x`, use a [`6.x`](https://github.com/subiz/go-elasticsearch/tree/6.x) version of the client.
-
-When using Go modules, include the version in the import path, and specify either an explicit version or a branch:
-
-    require github.com/subiz/go-elasticsearch/v7 7.x
-    require github.com/subiz/go-elasticsearch/v7 7.0.0
-
-It's possible to use multiple versions of the client in a single project:
-
-    // go.mod
-    github.com/subiz/go-elasticsearch 6.x
-    github.com/subiz/go-elasticsearch/v7 7.x
-
-    // main.go
-    import (
-      elasticsearch6 "github.com/subiz/go-elasticsearch"
-      elasticsearch7 "github.com/subiz/go-elasticsearch/v7"
-    )
-    // ...
-    es6, _ := elasticsearch6.NewDefaultClient()
-    es7, _ := elasticsearch7.NewDefaultClient()
-
-The `master` branch of the client is compatible with the current `master` branch of Elasticsearch.
+The client is compatible with Elasticsearch 6.x.
 
 <!-- ----------------------------------------------------------------------------------------------- -->
 
 ## Installation
 
-Add the package to your `go.mod` file:
+The simplest way:
 
-    require github.com/subiz/go-elasticsearch 6.x
+    go get -u github.com/subiz/go-elasticsearch
 
-Or, clone the repository:
+Or, use with dep:
 
-    git clone --branch 6.x https://github.com/subiz/go-elasticsearch.git $GOPATH/src/github.com/subiz/go-elasticsearch
-
-A complete example:
-
-```bash
-mkdir my-elasticsearch-app && cd my-elasticsearch-app
-
-cat > go.mod <<-END
-  module my-elasticsearch-app
-
-  require github.com/subiz/go-elasticsearch 6.x
-END
-
-cat > main.go <<-END
-  package main
-
-  import (
-    "log"
-
-    "github.com/subiz/go-elasticsearch"
-  )
-
-  func main() {
-    es, _ := elasticsearch.NewDefaultClient()
-    log.Println(elasticsearch.Version)
-    log.Println(es.Info())
-  }
-END
-
-go run main.go
-```
-
+	dep ensure -add github.com/subiz/go-elasticsearch
 
 <!-- ----------------------------------------------------------------------------------------------- -->
 
