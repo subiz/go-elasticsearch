@@ -2,7 +2,7 @@
 Package esapi provides the Go API for Elasticsearch.
 
 It is automatically included in the client provided by the
-github.com/elastic/go-elasticsearch package:
+github.com/subiz/go-elasticsearch package:
 
 	es, _ := elasticsearch.NewDefaultClient()
 	res, _ := es.Info()
@@ -56,7 +56,7 @@ It has a minor overhead compared to using a struct directly;
 refer to the esapi_benchmark_test.go suite for concrete numbers.
 
 See the documentation for each API function or struct at
-https://godoc.org/github.com/elastic/go-elasticsearch,
+https://godoc.org/github.com/subiz/go-elasticsearch,
 or locally by:
 
 	go doc github.com/subiz/go-elasticsearch/esapi Index
@@ -85,7 +85,7 @@ about the API endpoints and parameters.
 The Go API is generated from the Elasticsearch JSON specification at
 https://github.com/elastic/elasticsearch/tree/master/rest-api-spec/src/main/resources/rest-api-spec/api
 by the internal package available at
-https://github.com/elastic/go-elasticsearch/tree/master/internal/cmd/generate/commands.
+https://github.com/subiz/go-elasticsearch/tree/master/internal/cmd/generate/commands.
 
 The API is tested by integration tests common to all Elasticsearch official clients, generated from the
 source at https://github.com/elastic/elasticsearch/tree/master/rest-api-spec/src/main/resources/rest-api-spec/test. The generator is provided by the internal package internal/cmd/generate.

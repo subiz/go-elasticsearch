@@ -124,8 +124,8 @@ test-coverage:  ## Generate test coverage report
 ##@ Development
 lint:  ## Run lint on the package
 	@echo "\033[2m→ Running lint...\033[0m"
-	go vet github.com/elastic/go-elasticsearch/...
-	go list github.com/elastic/go-elasticsearch/... | 'grep' -v internal | xargs golint -set_exit_status
+	go vet github.com/subiz/go-elasticsearch/...
+	go list github.com/subiz/go-elasticsearch/... | 'grep' -v internal | xargs golint -set_exit_status
 
 apidiff: ## Display API incompabilities
 	@if ! command -v apidiff > /dev/null; then \
@@ -225,11 +225,11 @@ endif
 
 godoc: ## Display documentation for the package
 	@echo "\033[2m→ Generating documentation...\033[0m"
-	@echo "open http://localhost:6060/pkg/github.com/elastic/go-elasticsearch/\n"
+	@echo "open http://localhost:6060/pkg/github.com/subiz/go-elasticsearch/\n"
 	mkdir -p /tmp/tmpgoroot/doc
-	rm -rf /tmp/tmpgopath/src/github.com/elastic/go-elasticsearch
-	mkdir -p /tmp/tmpgopath/src/github.com/elastic/go-elasticsearch
-	tar -c --exclude='.git' --exclude='tmp' . | tar -x -C /tmp/tmpgopath/src/github.com/elastic/go-elasticsearch
+	rm -rf /tmp/tmpgopath/src/github.com/subiz/go-elasticsearch
+	mkdir -p /tmp/tmpgopath/src/github.com/subiz/go-elasticsearch
+	tar -c --exclude='.git' --exclude='tmp' . | tar -x -C /tmp/tmpgopath/src/github.com/subiz/go-elasticsearch
 	GOROOT=/tmp/tmpgoroot/ GOPATH=/tmp/tmpgopath/ godoc -http=localhost:6060 -play
 
 cluster: ## Launch an Elasticsearch cluster with Docker
